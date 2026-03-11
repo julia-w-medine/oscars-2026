@@ -565,6 +565,8 @@ function render() {
     .sort((a, b) => b.total - a.total);
 
   const maxScore = scores[0]?.total || 1;
+  const unannounced = Object.keys(CATEGORIES).length - announced;
+  const remainingPts = unannounced * 3; // best case: 1st choice correct in every remaining category
   let rank = 1;
   scores.forEach((s, i) => {
     if (i > 0 && s.total < scores[i-1].total) rank = i + 1;
@@ -576,7 +578,7 @@ function render() {
   const totalPts = Object.keys(CATEGORIES).length * 3;
   statsRow.innerHTML = `
     <div class="stat"><span>${announced} of ${totalCats}</span> <strong>categories announced</strong></div>
-    <div class="stat">Max possible: <strong>${maxScore} pts</strong></div>
+    <div class="stat">Max still earnable: <strong>${remainingPts} pts</strong></div>
     <div class="stat">${scores.length} <strong>players</strong></div>
   `;
 
