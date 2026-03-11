@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weil Medines Oscars 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --gold-dim: #8A6E2F;
+    --black: #0A0804;
+    --dark: #12100A;
+    --card: #1A1710;
+    --border: rgba(201,168,76,0.2);
+    --text: #F0E6CC;
+    --muted: rgba(240,230,204,0.5);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Starfield background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(201,168,76,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 10%, rgba(201,168,76,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 60%, rgba(201,168,76,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 80%, rgba(201,168,76,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 70%, rgba(201,168,76,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 35% 15%, rgba(201,168,76,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 85%, rgba(201,168,76,0.2) 0%, transparent 100%),
+      radial-gradient(2px 2px at 75% 45%, rgba(201,168,76,0.15) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    padding: 48px 0 32px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .oscar-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 12px rgba(201,168,76,0.5));
+    animation: glow 3s ease-in-out infinite;
+  }
+
+  @keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 8px rgba(201,168,76,0.4)); }
+    50% { filter: drop-shadow(0 0 20px rgba(201,168,76,0.8)); }
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 6vw, 52px);
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    background: linear-gradient(135deg, var(--gold-dim) 0%, var(--gold-light) 50%, var(--gold-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  /* Controls */
+  .controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .section-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  /* Winner Entry Panel */
+  .winner-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .winner-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .winner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .winner-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .winner-row label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+
+  .winner-row select {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text);
+    padding: 7px 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    width: 100%;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23C9A84C'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 28px;
+  }
+
+  .winner-row select:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+
+  .winner-row select.has-winner {
+    border-color: rgba(201,168,76,0.5);
+    background-color: rgba(201,168,76,0.05);
+  }
+
+  /* Leaderboard */
+  .leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .player-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .player-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--gold-dim);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .player-card:hover, .player-card.expanded {
+    border-color: rgba(201,168,76,0.4);
+    background: rgba(201,168,76,0.04);
+  }
+
+  .player-card:hover::before, .player-card.expanded::before {
+    opacity: 1;
+  }
+
+  .player-card.rank-1 { border-color: rgba(201,168,76,0.5); background: rgba(201,168,76,0.06); }
+  .player-card.rank-1::before { opacity: 1; background: var(--gold); }
+  .player-card.rank-2::before { opacity: 0.7; background: #C0C0C0; }
+  .player-card.rank-3::before { opacity: 0.7; background: #CD7F32; }
+
+  .rank-badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .rank-1 .rank-badge { background: rgba(201,168,76,0.15); color: var(--gold-light); border: 1px solid var(--gold); }
+  .rank-2 .rank-badge { background: rgba(192,192,192,0.1); color: #D0D0D0; border: 1px solid rgba(192,192,192,0.4); }
+  .rank-3 .rank-badge { background: rgba(205,127,50,0.1); color: #D4956A; border: 1px solid rgba(205,127,50,0.4); }
+  .player-card:not(.rank-1):not(.rank-2):not(.rank-3) .rank-badge {
+    background: rgba(255,255,255,0.04);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    font-size: 14px;
+  }
+
+  .player-info { min-width: 0; }
+
+  .player-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .rank-1 .player-name { color: var(--gold-light); }
+
+  .player-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  .score-display {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .score-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .rank-1 .score-number { color: var(--gold-light); }
+  .rank-2 .score-number { color: #D0D0D0; }
+  .rank-3 .score-number { color: #D4956A; }
+  .player-card:not(.rank-1):not(.rank-2):not(.rank-3) .score-number { color: var(--text); }
+
+  .score-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* Score bar */
+  .score-bar-container {
+    margin-top: 6px;
+    height: 2px;
+    background: var(--border);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+  .score-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold-light));
+    border-radius: 1px;
+    transition: width 0.6s ease;
+  }
+
+  /* Detail panel */
+  .detail-panel {
+    display: none;
+    padding: 16px 20px 20px;
+    background: rgba(0,0,0,0.3);
+    border-top: 1px solid var(--border);
+    margin: 0 -20px -16px;
+  }
+
+  .player-card.expanded .detail-panel { display: block; }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .detail-item {
+    padding: 8px 10px;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+
+  .detail-item.correct-1 { background: rgba(201,168,76,0.12); border-left: 2px solid var(--gold); }
+  .detail-item.correct-2 { background: rgba(201,168,76,0.07); border-left: 2px solid var(--gold-dim); }
+  .detail-item.correct-3 { background: rgba(201,168,76,0.04); border-left: 2px solid rgba(201,168,76,0.3); }
+  .detail-item.wrong { opacity: 0.4; border-left: 2px solid transparent; }
+  .detail-item.pending { opacity: 0.5; border-left: 2px solid rgba(255,255,255,0.1); }
+
+  .detail-cat {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 2px;
+  }
+
+  .detail-pick { color: var(--text); }
+  .detail-pts {
+    float: right;
+    font-weight: 600;
+    color: var(--gold);
+    font-size: 12px;
+  }
+
+  /* Stats bar */
+  .stats-row {
+    display: flex;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+
+  .stat { display: flex; gap: 6px; align-items: center; }
+  .stat strong { color: var(--gold); font-size: 14px; }
+
+  /* Progress */
+  .progress-bar-outer {
+    background: var(--border);
+    border-radius: 2px;
+    height: 4px;
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+  .progress-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold-light));
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+
+  /* Update notice */
+  .update-notice {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .pulse {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-right: 6px;
+    animation: pulse 2s infinite;
+    vertical-align: middle;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  /* Animate cards in */
+  .player-card {
+    animation: slideIn 0.4s ease both;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 500px) {
+    .player-card { grid-template-columns: 36px 1fr auto; gap: 10px; padding: 12px 14px; }
+    .score-number { font-size: 22px; }
+    .player-name { font-size: 15px; }
+    .rank-badge { width: 32px; height: 32px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="oscar-icon">🏆</div>
+    <h1>Weil Medines<br>Oscars 2026</h1>
+    <p class="subtitle">98th Academy Awards · March 2026</p>
+  </header>
+
+  <!-- Winner Entry -->
+  <div class="winner-panel">
+    <div class="section-label">▸ Enter Winners as they're announced</div>
+    <div class="winner-grid" id="winnerGrid"></div>
+  </div>
+
+  <!-- Progress -->
+  <div class="section-label">▸ Leaderboard</div>
+  <div id="progressWrap">
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="progressBar" style="width:0%"></div></div>
+  </div>
+
+  <div class="stats-row" id="statsRow"></div>
+
+  <div class="leaderboard" id="leaderboard"></div>
+
+  <div class="update-notice">
+    <span class="pulse"></span>
+    Scores update instantly as winners are entered above
+  </div>
+
+</div>
+
+<script>
+const BALLOTS = {"Lizzy Pott":{"BEST PICTURE":{"Marty Supreme":"3rd Choice","One Battle After Another":"1st Choice","Sinners":"2nd Choice"},"BEST ACTOR":{"Timothée Chalamet, Marty Supreme":"1st Choice","Michael B. Jordan, Sinners":"2nd Choice"},"BEST ACTRESS":{"Rose Byrne, If I Had Legs I'd Kick You":"1st Choice","Renate Reinsve, Sentimental Value":"3rd Choice","Emma Stone, Bugonia":"2nd Choice"},"BEST SUPPORTING ACTOR":{"Benicio Del Toro, One Battle After Another":"3rd Choice","Delroy Lindo, Sinners":"2nd Choice","Stellan Skarsgard, Sentimental Value":"1st Choice"},"BEST SUPPORTING ACTRESS":{"Elle Fanning, Sentimental Value":"2nd Choice","Wunmi Mosaku, Sinners":"3rd Choice","Teyana Taylor, One Battle After Another":"1st Choice"},"BEST DIRECTING":{"Chloé Zhao, Hamnet":"3rd Choice","Josh Safdie, Marty Supreme":"2nd Choice","Ryan Coogler, Sinners":"1st Choice"},"BEST INTERNATIONAL FEATURE FILM":{"The Secret Agent, Brazil":"2nd Choice","It Was Just an Accident, France":"3rd Choice","Sentimental Value, Norway":"1st Choice"},"BEST ORIGINAL SONG":{"\"Golden\" - KPop Demon Hunters":"1st Choice","\"I Lied to You\" - Sinners":"2nd Choice","\"Train Dreams\" - Train Dreams":"3rd Choice"},"BEST ORIGINAL SCREENPLAY":{"Marty Supreme":"3rd Choice","Sentimental Value":"2nd Choice","Sinners":"1st Choice"},"BEST SCREENPLAY ADAPTATION":{"Frankenstein":"3rd Choice","Hamnet":"2nd Choice","One Battle After Another":"1st Choice"},"BEST CINEMATOGRAPHY":{"One Battle After Another":"2nd Choice","Sinners":"1st Choice","Train Dreams":"3rd Choice"},"BEST ORIGINAL SCORE":{"Bugonia":"3rd Choice","Hamnet":"2nd Choice","Sinners":"1st Choice"},"BEST PRODUCTION DESIGN":{"Hamnet":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST COSTUME DESIGN":{"Hamnet":"1st Choice","Marty Supreme":"3rd Choice","Sinners":"2nd Choice"},"BEST DOCUMENTARY FEATURE":{"Come See Me in the Good Light":"3rd Choice","Cutting Through Rocks":"2nd Choice","The Perfect Neighbor":"1st Choice"},"BEST FILM EDITING":{"One Battle After Another":"3rd Choice","Sentimnetal Value":"2nd Choice","Sinners":"1st Choice"},"BEST ANIMATED FEATURE FILM":{"Elio":"2nd Choice","KPop Demon Hunters":"1st Choice","Little Amélie or the Character of Rain":"3rd Choice"},"BEST VISUAL EFFECTS":{"Avatar: Fire and Ash":"1st Choice","F1":"2nd Choice","Sinners":"3rd Choice"}},"Rebecca Kahlenberg":{"BEST PICTURE":{"Marty Supreme":"3rd Choice","One Battle After Another":"2nd Choice","Sentimental Value":"1st Choice"},"BEST ACTOR":{"Timothée Chalamet, Marty Supreme":"2nd Choice","Leonardo DiCaprio, One Battle After Another":"1st Choice","Ethan Hawke, Blue Moon":"3rd Choice"},"BEST ACTRESS":{"Rose Byrne, If I Had Legs I'd Kick You":"3rd Choice","Kate Hudson, Song Sung Blue":"1st Choice","Emma Stone, Bugonia":"2nd Choice"},"BEST SUPPORTING ACTOR":{"Benicio Del Toro, One Battle After Another":"3rd Choice","Jacob Elordi, Frankenstein":"2nd Choice","Sean Penn, One Battle After Another":"1st Choice"},"BEST SUPPORTING ACTRESS":{"Elle Fanning, Sentimental Value":"1st Choice","Inga Ibsdotter Lilleaas, Sentimental Value":"3rd Choice","Amy Madigan, Weapons":"2nd Choice"},"BEST DIRECTING":{"Chloé Zhao, Hamnet":"1st Choice","Josh Safdie, Marty Supreme":"2nd Choice","Ryan Coogler, Sinners":"3rd Choice"},"BEST INTERNATIONAL FEATURE FILM":{"The Secret Agent, Brazil":"1st Choice","Sentimental Value, Norway":"2nd Choice","Sirât, Spain":"3rd Choice"},"BEST ORIGINAL SONG":{"\"Dear Me\" - Relentless":"3rd Choice","\"Sweet Dreams of Joy\" - Viva Verdi!":"1st Choice","\"Train Dreams\" - Train Dreams":"2nd Choice"},"BEST ORIGINAL SCREENPLAY":{"Blue Moon":"3rd Choice","Marty Supreme":"1st Choice","Sentimental Value":"2nd Choice"},"BEST SCREENPLAY ADAPTATION":{"Bugonia":"1st Choice","Frankenstein":"3rd Choice","One Battle After Another":"2nd Choice"},"BEST CINEMATOGRAPHY":{"Frankenstein":"2nd Choice","One Battle After Another":"1st Choice","Sinners":"3rd Choice"},"BEST ORIGINAL SCORE":{"Frankenstein":"2nd Choice","Hamnet":"1st Choice","One Battle After Another":"3rd Choice"},"BEST PRODUCTION DESIGN":{"Hamnet":"3rd Choice","Marty Supreme":"1st Choice","One Battle After Another":"2nd Choice"},"BEST COSTUME DESIGN":{"Avatar: Fire and Ash":"3rd Choice","Frankenstein":"1st Choice","Hamnet":"2nd Choice"},"BEST DOCUMENTARY FEATURE":{"Cutting Through Rocks":"3rd Choice","Mr. Nobody Against Putin":"1st Choice","The Perfect Neighbor":"2nd Choice"},"BEST FILM EDITING":{"Marty Supreme":"3rd Choice","One Battle After Another":"1st Choice","Sentimnetal Value":"2nd Choice"},"BEST ANIMATED FEATURE FILM":{"Arco":"1st Choice","KPop Demon Hunters":"2nd Choice","Little Amélie or the Character of Rain":"3rd Choice"},"BEST VISUAL EFFECTS":{"Avatar: Fire and Ash":"2nd Choice","Jurassic World Rebirth":"1st Choice","The Lost Bus":"3rd Choice"}},"Anne Quinlan":{"BEST PICTURE":{"Hamnet":"1st Choice","One Battle After Another":"2nd Choice","Sentimental Value":"3rd Choice"},"BEST ACTOR":{"Leonardo DiCaprio, One Battle After Another":"1st Choice","Ethan Hawke, Blue Moon":"2nd Choice","Michael B. Jordan, Sinners":"3rd Choice"},"BEST ACTRESS":{"Jessie Buckley, Hamnet":"1st Choice","Kate Hudson, Song Sung Blue":"3rd Choice","Renate Reinsve, Sentimental Value":"2nd Choice"},"BEST SUPPORTING ACTOR":{"Benicio Del Toro, One Battle After Another":"2nd Choice","Sean Penn, One Battle After Another":"3rd Choice","Stellan Skarsgard, Sentimental Value":"1st Choice"},"BEST SUPPORTING ACTRESS":{"Elle Fanning, Sentimental Value":"3rd Choice","Inga Ibsdotter Lilleaas, Sentimental Value":"1st Choice","Wunmi Mosaku, Sinners":"2nd Choice"},"BEST DIRECTING":{"Chloé Zhao, Hamnet":"1st Choice","Paul Thomas Anderson, One Battle After Another":"2nd Choice","Joachim Trier, Sentimental Value":"3rd Choice"},"BEST INTERNATIONAL FEATURE FILM":{"It Was Just an Accident, France":"3rd Choice","Sentimental Value, Norway":"2nd Choice","The Voice of Hind Rajab, Tunisia":"1st Choice"},"BEST ORIGINAL SONG":{"\"Golden\" - KPop Demon Hunters":"1st Choice","\"I Lied to You\" - Sinners":"2nd Choice","\"Train Dreams\" - Train Dreams":"3rd Choice"},"BEST ORIGINAL SCREENPLAY":{"Blue Moon":"3rd Choice","Sentimental Value":"1st Choice","Sinners":"2nd Choice"},"BEST SCREENPLAY ADAPTATION":{"Hamnet":"1st Choice","One Battle After Another":"2nd Choice","Train Dreams":"3rd Choice"},"BEST CINEMATOGRAPHY":{"One Battle After Another":"1st Choice","Sinners":"2nd Choice","Train Dreams":"3rd Choice"},"BEST ORIGINAL SCORE":{"Hamnet":"1st Choice","One Battle After Another":"2nd Choice","Sinners":"3rd Choice"},"BEST COSTUME DESIGN":{"Avatar: Fire and Ash":"1st Choice","Frankenstein":"3rd Choice","Hamnet":"2nd Choice"},"BEST FILM EDITING":{"F1":"2nd Choice","Sentimnetal Value":"1st Choice","Sinners":"3rd Choice"}},"Erica Wenger":{"BEST PICTURE":{"Hamnet":"3rd Choice","One Battle After Another":"1st Choice","Sinners":"2nd Choice"},"BEST ACTOR":{"Timothée Chalamet, Marty Supreme":"1st Choice","Ethan Hawke, Blue Moon":"3rd Choice","Wagner Moura, The Secret Agent":"2nd Choice"},"BEST ACTRESS":{"Jessie Buckley, Hamnet":"1st Choice","Rose Byrne, If I Had Legs I'd Kick You":"2nd Choice","Renate Reinsve, Sentimental Value":"3rd Choice"},"BEST SUPPORTING ACTOR":{"Jacob Elordi, Frankenstein":"3rd Choice","Sean Penn, One Battle After Another":"2nd Choice","Stellan Skarsgard, Sentimental Value":"1st Choice"},"BEST SUPPORTING ACTRESS":{"Amy Madigan, Weapons":"2nd Choice","Wunmi Mosaku, Sinners":"3rd Choice","Teyana Taylor, One Battle After Another":"1st Choice"},"BEST DIRECTING":{"Chloé Zhao, Hamnet":"2nd Choice","Paul Thomas Anderson, One Battle After Another":"1st Choice","Ryan Coogler, Sinners":"3rd Choice"},"BEST INTERNATIONAL FEATURE FILM":{"The Secret Agent, Brazil":"2nd Choice","It Was Just an Accident, France":"3rd Choice","Sentimental Value, Norway":"1st Choice"},"BEST ORIGINAL SONG":{"\"Dear Me\" - Relentless":"3rd Choice","\"Golden\" - KPop Demon Hunters":"1st Choice","\"I Lied to You\" - Sinners":"2nd Choice"},"BEST ORIGINAL SCREENPLAY":{"Marty Supreme":"3rd Choice","Sentimental Value":"2nd Choice","Sinners":"1st Choice"},"BEST SCREENPLAY ADAPTATION":{"Hamnet":"2nd Choice","One Battle After Another":"1st Choice","Train Dreams":"3rd Choice"},"BEST CINEMATOGRAPHY":{"One Battle After Another":"3rd Choice","Sinners":"1st Choice","Train Dreams":"2nd Choice"},"BEST ORIGINAL SCORE":{"Hamnet":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST PRODUCTION DESIGN":{"Frankenstein":"1st Choice","Hamnet":"3rd Choice","Sinners":"2nd Choice"},"BEST COSTUME DESIGN":{"Frankenstein":"1st Choice","Hamnet":"3rd Choice","Sinners":"2nd Choice"},"BEST DOCUMENTARY FEATURE":{"The Alabama Solution":"2nd Choice","Mr. Nobody Against Putin":"3rd Choice","The Perfect Neighbor":"1st Choice"},"BEST FILM EDITING":{"F1":"1st Choice","One Battle After Another":"2nd Choice","Sinners":"3rd Choice"},"BEST ANIMATED FEATURE FILM":{"Elio":"3rd Choice","KPop Demon Hunters":"1st Choice","Zootopia 2":"2nd Choice"},"BEST VISUAL EFFECTS":{"Avatar: Fire and Ash":"1st Choice","F1":"3rd Choice","Sinners":"2nd Choice"}},"Andrew Jacobs":{"BEST PICTURE":{"Marty Supreme":"3rd Choice","One Battle After Another":"1st Choice","Sinners":"2nd Choice"},"BEST ACTOR":{"Timothée Chalamet, Marty Supreme":"1st Choice","Leonardo DiCaprio, One Battle After Another":"3rd Choice","Michael B. Jordan, Sinners":"2nd Choice"},"BEST ACTRESS":{"Jessie Buckley, Hamnet":"1st Choice","Rose Byrne, If I Had Legs I'd Kick You":"2nd Choice","Renate Reinsve, Sentimental Value":"3rd Choice"},"BEST SUPPORTING ACTOR":{"Benicio Del Toro, One Battle After Another":"1st Choice","Sean Penn, One Battle After Another":"2nd Choice","Stellan Skarsgard, Sentimental Value":"3rd Choice"},"BEST SUPPORTING ACTRESS":{"Elle Fanning, Sentimental Value":"3rd Choice","Inga Ibsdotter Lilleaas, Sentimental Value":"2nd Choice","Teyana Taylor, One Battle After Another":"1st Choice"},"BEST DIRECTING":{"Josh Safdie, Marty Supreme":"2nd Choice","Paul Thomas Anderson, One Battle After Another":"1st Choice","Ryan Coogler, Sinners":"3rd Choice"},"BEST INTERNATIONAL FEATURE FILM":{"The Secret Agent, Brazil":"2nd Choice","It Was Just an Accident, France":"3rd Choice","Sentimental Value, Norway":"1st Choice"},"BEST ORIGINAL SONG":{"\"Golden\" - KPop Demon Hunters":"1st Choice","\"I Lied to You\" - Sinners":"2nd Choice","\"Train Dreams\" - Train Dreams":"3rd Choice"},"BEST ORIGINAL SCREENPLAY":{"Marty Supreme":"1st Choice","Sentimental Value":"3rd Choice","Sinners":"2nd Choice"},"BEST SCREENPLAY ADAPTATION":{"Hamnet":"2nd Choice","One Battle After Another":"1st Choice","Train Dreams":"3rd Choice"},"BEST CINEMATOGRAPHY":{"Frankenstein":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST ORIGINAL SCORE":{"Bugonia":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST PRODUCTION DESIGN":{"Frankenstein":"2nd Choice","One Battle After Another":"1st Choice","Sinners":"3rd Choice"},"BEST COSTUME DESIGN":{"Avatar: Fire and Ash":"3rd Choice","Frankenstein":"1st Choice","Sinners":"2nd Choice"},"BEST DOCUMENTARY FEATURE":{"The Alabama Solution":"1st Choice","Mr. Nobody Against Putin":"2nd Choice","The Perfect Neighbor":"3rd Choice"},"BEST FILM EDITING":{"F1":"3rd Choice","One Battle After Another":"1st Choice","Sinners":"2nd Choice"},"BEST ANIMATED FEATURE FILM":{"Elio":"3rd Choice","KPop Demon Hunters":"1st Choice","Zootopia 2":"2nd Choice"},"BEST VISUAL EFFECTS":{"Avatar: Fire and Ash":"1st Choice","F1":"2nd Choice","Sinners":"3rd Choice"}},"Emily Koh":{"BEST PICTURE":{"Hamnet":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST ACTOR":{"Timothée Chalamet, Marty Supreme":"2nd Choice","Leonardo DiCaprio, One Battle After Another":"3rd Choice","Wagner Moura, The Secret Agent":"1st Choice"},"BEST ACTRESS":{"Jessie Buckley, Hamnet":"1st Choice","Rose Byrne, If I Had Legs I'd Kick You":"2nd Choice","Renate Reinsve, Sentimental Value":"3rd Choice"},"BEST SUPPORTING ACTOR":{"Delroy Lindo, Sinners":"2nd Choice","Sean Penn, One Battle After Another":"3rd Choice","Stellan Skarsgard, Sentimental Value":"1st Choice"},"BEST SUPPORTING ACTRESS":{"Inga Ibsdotter Lilleaas, Sentimental Value":"3rd Choice","Amy Madigan, Weapons":"2nd Choice","Teyana Taylor, One Battle After Another":"1st Choice"},"BEST DIRECTING":{"Chloé Zhao, Hamnet":"1st Choice","Paul Thomas Anderson, One Battle After Another":"3rd Choice","Ryan Coogler, Sinners":"2nd Choice"},"BEST INTERNATIONAL FEATURE FILM":{"The Secret Agent, Brazil":"2nd Choice","It Was Just an Accident, France":"3rd Choice","Sentimental Value, Norway":"1st Choice"},"BEST ORIGINAL SONG":{"\"Golden\" - KPop Demon Hunters":"1st Choice","\"I Lied to You\" - Sinners":"3rd Choice","\"Sweet Dreams of Joy\" - Viva Verdi!":"2nd Choice"},"BEST ORIGINAL SCREENPLAY":{"Marty Supreme":"2nd Choice","Sentimental Value":"3rd Choice","Sinners":"1st Choice"},"BEST SCREENPLAY ADAPTATION":{"Bugonia":"3rd Choice","Hamnet":"2nd Choice","One Battle After Another":"1st Choice"},"BEST CINEMATOGRAPHY":{"Marty Supreme":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST ORIGINAL SCORE":{"Hamnet":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST PRODUCTION DESIGN":{"Marty Supreme":"2nd Choice","One Battle After Another":"3rd Choice","Sinners":"1st Choice"},"BEST COSTUME DESIGN":{"Hamnet":"3rd Choice","Marty Supreme":"2nd Choice","Sinners":"1st Choice"},"BEST DOCUMENTARY FEATURE":{"The Alabama Solution":"1st Choice"},"BEST FILM EDITING":{"Marty Supreme":"2nd Choice","One Battle After Another":"1st Choice","Sinners":"3rd Choice"},"BEST ANIMATED FEATURE FILM":{"Arco":"3rd Choice","KPop Demon Hunters":"1st Choice","Zootopia 2":"2nd Choice"},"BEST VISUAL EFFECTS":{"Avatar: Fire and Ash":"2nd Choice","F1":"3rd Choice","Sinners":"1st Choice"}},"Laura Anderson":{},"Carla Smith":{"BEST PICTURE":{"F1":"3rd Choice","Frankenstein":"1st Choice","Hamnet":"2nd Choice"},"BEST ACTOR":{"Ethan Hawke, Blue Moon":"1st Choice"},"BEST ACTRESS":{"Jessie Buckley, Hamnet":"1st Choice"},"BEST SUPPORTING ACTOR":{"Jacob Elordi, Frankenstein":"1st Choice","Stellan Skarsgard, Sentimental Value":"2nd Choice"},"BEST SUPPORTING ACTRESS":{"Inga Ibsdotter Lilleaas, Sentimental Value":"1st Choice"},"BEST DIRECTING":{"Chloé Zhao, Hamnet":"1st Choice","Joachim Trier, Sentimental Value":"2nd Choice"},"BEST INTERNATIONAL FEATURE FILM":{"Sentimental Value, Norway":"1st Choice"},"BEST ORIGINAL SCREENPLAY":{"Blue Moon":"1st Choice","Sentimental Value":"2nd Choice"},"BEST SCREENPLAY ADAPTATION":{"Frankenstein":"1st Choice","Hamnet":"2nd Choice"},"BEST CINEMATOGRAPHY":{"Frankenstein":"1st Choice"},"BEST PRODUCTION DESIGN":{"Frankenstein":"1st Choice","Hamnet":"2nd Choice"},"BEST COSTUME DESIGN":{"Frankenstein":"1st Choice","Hamnet":"2nd Choice"},"BEST FILM EDITING":{"F1":"1st Choice"},"BEST VISUAL EFFECTS":{"F1":"1st Choice"}},"Lisa Gappa-Norris":{},"Leslie Maitland":{"BEST PICTURE":{"Hamnet":"2nd Choice","Marty Supreme":"1st Choice","Sentimental Value":"3rd Choice"},"BEST ACTOR":{"Timothée Chalamet, Marty Supreme":"1st Choice","Leonardo DiCaprio, One Battle After Another":"3rd Choice","Michael B. Jordan, Sinners":"2nd Choice"},"BEST ACTRESS":{"Jessie Buckley, Hamnet":"2nd Choice","Kate Hudson, Song Sung Blue":"1st Choice","Renate Reinsve, Sentimental Value":"3rd Choice"},"BEST SUPPORTING ACTOR":{"Sean Penn, One Battle After Another":"2nd Choice","Stellan Skarsgard, Sentimental Value":"1st Choice"},"BEST SUPPORTING ACTRESS":{"Elle Fanning, Sentimental Value":"2nd Choice","Wunmi Mosaku, Sinners":"1st Choice"},"BEST DIRECTING":{"Chloé Zhao, Hamnet":"2nd Choice","Josh Safdie, Marty Supreme":"1st Choice","Joachim Trier, Sentimental Value":"3rd Choice"},"BEST INTERNATIONAL FEATURE FILM":{"Sentimental Value, Norway":"1st Choice"},"BEST ORIGINAL SCREENPLAY":{"Marty Supreme":"1st Choice","Sentimental Value":"2nd Choice"},"BEST SCREENPLAY ADAPTATION":{"Hamnet":"1st Choice"},"BEST CINEMATOGRAPHY":{"Marty Supreme":"1st Choice","Sinners":"2nd Choice","Train Dreams":"3rd Choice"},"BEST PRODUCTION DESIGN":{"Hamnet":"1st Choice","Marty Supreme":"2nd Choice","Sinners":"3rd Choice"}},"Jonathan Berzer":{"BEST PICTURE":{"Bugonia":"2nd Choice","F1":"1st Choice","The Secret Agent":"3rd Choice"},"BEST ACTOR":{"Ethan Hawke, Blue Moon":"1st Choice","Michael B. Jordan, Sinners":"2nd Choice","Wagner Moura, The Secret Agent":"3rd Choice"},"BEST ACTRESS":{"Rose Byrne, If I Had Legs I'd Kick You":"1st Choice","Kate Hudson, Song Sung Blue":"2nd Choice","Renate Reinsve, Sentimental Value":"3rd Choice"},"BEST SUPPORTING ACTOR":{"Benicio Del Toro, One Battle After Another":"2nd Choice","Delroy Lindo, Sinners":"3rd Choice","Stellan Skarsgard, Sentimental Value":"1st Choice"},"BEST SUPPORTING ACTRESS":{"Elle Fanning, Sentimental Value":"1st Choice","Inga Ibsdotter Lilleaas, Sentimental Value":"2nd Choice","Amy Madigan, Weapons":"3rd Choice"},"BEST DIRECTING":{"Josh Safdie, Marty Supreme":"3rd Choice","Ryan Coogler, Sinners":"2nd Choice"},"BEST INTERNATIONAL FEATURE FILM":{"It Was Just an Accident, France":"3rd Choice","Sirât, Spain":"1st Choice","The Voice of Hind Rajab, Tunisia":"2nd Choice"},"BEST ORIGINAL SONG":{"\"I Lied to You\" - Sinners":"3rd Choice","\"Sweet Dreams of Joy\" - Viva Verdi!":"1st Choice","\"Train Dreams\" - Train Dreams":"2nd Choice"},"BEST ORIGINAL SCREENPLAY":{"Blue Moon":"3rd Choice","It Was Just an Accident":"2nd Choice","Sinners":"1st Choice"},"BEST SCREENPLAY ADAPTATION":{"Bugonia":"1st Choice","Frankenstein":"2nd Choice","Hamnet":"3rd Choice"},"BEST CINEMATOGRAPHY":{"Marty Supreme":"3rd Choice","Sinners":"2nd Choice","Train Dreams":"1st Choice"},"BEST ORIGINAL SCORE":{"Frankenstein":"2nd Choice","Hamnet":"3rd Choice","Sinners":"1st Choice"},"BEST PRODUCTION DESIGN":{"Hamnet":"3rd Choice","Marty Supreme":"2nd Choice","Sinners":"1st Choice"},"BEST COSTUME DESIGN":{"Avatar: Fire and Ash":"1st Choice","Hamnet":"2nd Choice","Sinners":"3rd Choice"},"BEST DOCUMENTARY FEATURE":{"Come See Me in the Good Light":"3rd Choice","Cutting Through Rocks":"2nd Choice","Mr. Nobody Against Putin":"1st Choice"},"BEST FILM EDITING":{"F1":"3rd Choice","Marty Supreme":"2nd Choice","Sinners":"1st Choice"},"BEST ANIMATED FEATURE FILM":{"Arco":"3rd Choice","Elio":"2nd Choice","Little Amélie or the Character of Rain":"1st Choice"},"BEST VISUAL EFFECTS":{"Avatar: Fire and Ash":"3rd Choice","Jurassic World Rebirth":"2nd Choice","The Lost Bus":"1st Choice"}},"Jeff and Shelley Finci":{"BEST PICTURE":{"Marty Supreme":"3rd Choice","One Battle After Another":"1st Choice","Sinners":"2nd Choice"},"BEST ACTOR":{"Timothée Chalamet, Marty Supreme":"1st Choice","Leonardo DiCaprio, One Battle After Another":"3rd Choice","Michael B. Jordan, Sinners":"2nd Choice"},"BEST ACTRESS":{"Jessie Buckley, Hamnet":"3rd Choice","Rose Byrne, If I Had Legs I'd Kick You":"1st Choice","Renate Reinsve, Sentimental Value":"2nd Choice"},"BEST SUPPORTING ACTOR":{"Delroy Lindo, Sinners":"3rd Choice","Sean Penn, One Battle After Another":"2nd Choice","Stellan Skarsgard, Sentimental Value":"1st Choice"},"BEST SUPPORTING ACTRESS":{"Amy Madigan, Weapons":"2nd Choice","Wunmi Mosaku, Sinners":"3rd Choice","Teyana Taylor, One Battle After Another":"1st Choice"},"BEST DIRECTING":{"Chloé Zhao, Hamnet":"3rd Choice","Paul Thomas Anderson, One Battle After Another":"2nd Choice","Ryan Coogler, Sinners":"1st Choice"},"BEST INTERNATIONAL FEATURE FILM":{"The Secret Agent, Brazil":"2nd Choice","Sentimental Value, Norway":"1st Choice","The Voice of Hind Rajab, Tunisia":"3rd Choice"},"BEST ORIGINAL SONG":{"\"Golden\" - KPop Demon Hunters":"1st Choice","\"I Lied to You\" - Sinners":"2nd Choice","\"Train Dreams\" - Train Dreams":"3rd Choice"},"BEST ORIGINAL SCREENPLAY":{"Marty Supreme":"3rd Choice","Sentimental Value":"2nd Choice","Sinners":"1st Choice"},"BEST SCREENPLAY ADAPTATION":{"Frankenstein":"3rd Choice","Hamnet":"2nd Choice","One Battle After Another":"1st Choice"},"BEST CINEMATOGRAPHY":{"One Battle After Another":"3rd Choice","Sinners":"1st Choice","Train Dreams":"2nd Choice"},"BEST ORIGINAL SCORE":{"Hamnet":"3rd Choice","One Battle After Another":"1st Choice","Sinners":"2nd Choice"},"BEST PRODUCTION DESIGN":{"Marty Supreme":"1st Choice","One Battle After Another":"3rd Choice","Sinners":"2nd Choice"},"BEST COSTUME DESIGN":{"Frankenstein":"1st Choice","Hamnet":"2nd Choice","Sinners":"3rd Choice"},"BEST DOCUMENTARY FEATURE":{"Come See Me in the Good Light":"2nd Choice","Cutting Through Rocks":"3rd Choice","The Perfect Neighbor":"1st Choice"},"BEST FILM EDITING":{"Marty Supreme":"3rd Choice","Sentimnetal Value":"2nd Choice","Sinners":"1st Choice"},"BEST ANIMATED FEATURE FILM":{"Elio":"2nd Choice","KPop Demon Hunters":"1st Choice","Zootopia 2":"3rd Choice"},"BEST VISUAL EFFECTS":{"Avatar: Fire and Ash":"1st Choice","Jurassic World Rebirth":"3rd Choice","Sinners":"2nd Choice"}},"Bruce Meyers":{"BEST PICTURE":{"Bugonia":"2nd Choice","Hamnet":"1st Choice","One Battle After Another":"3rd Choice"},"BEST ACTOR":{"Timothée Chalamet, Marty Supreme":"2nd Choice","Leonardo DiCaprio, One Battle After Another":"1st Choice","Michael B. Jordan, Sinners":"3rd Choice"},"BEST ACTRESS":{"Jessie Buckley, Hamnet":"1st Choice","Kate Hudson, Song Sung Blue":"2nd Choice","Emma Stone, Bugonia":"3rd Choice"},"BEST SUPPORTING ACTOR":{"Benicio Del Toro, One Battle After Another":"1st Choice","Delroy Lindo, Sinners":"2nd Choice","Sean Penn, One Battle After Another":"3rd Choice"},"BEST SUPPORTING ACTRESS":{"Elle Fanning, Sentimental Value":"3rd Choice","Wunmi Mosaku, Sinners":"2nd Choice","Teyana Taylor, One Battle After Another":"1st Choice"},"BEST DIRECTING":{"Chloé Zhao, Hamnet":"1st Choice","Paul Thomas Anderson, One Battle After Another":"3rd Choice","Ryan Coogler, Sinners":"2nd Choice"},"BEST INTERNATIONAL FEATURE FILM":{"The Secret Agent, Brazil":"3rd Choice","It Was Just an Accident, France":"1st Choice","Sentimental Value, Norway":"2nd Choice"},"BEST ORIGINAL SONG":{"\"Golden\" - KPop Demon Hunters":"3rd Choice","\"I Lied to You\" - Sinners":"1st Choice","\"Train Dreams\" - Train Dreams":"2nd Choice"},"BEST ORIGINAL SCREENPLAY":{"Blue Moon":"1st Choice","Marty Supreme":"2nd Choice","Sinners":"3rd Choice"},"BEST SCREENPLAY ADAPTATION":{"Hamnet":"1st Choice","One Battle After Another":"2nd Choice","Train Dreams":"3rd Choice"},"BEST CINEMATOGRAPHY":{"One Battle After Another":"1st Choice","Sinners":"2nd Choice","Train Dreams":"3rd Choice"},"BEST ORIGINAL SCORE":{"Bugonia":"3rd Choice","Hamnet":"2nd Choice","Sinners":"1st Choice"},"BEST PRODUCTION DESIGN":{"Hamnet":"2nd Choice","Marty Supreme":"3rd Choice","Sinners":"1st Choice"},"BEST COSTUME DESIGN":{"Hamnet":"1st Choice","Marty Supreme":"2nd Choice","Sinners":"3rd Choice"},"BEST DOCUMENTARY FEATURE":{"The Alabama Solution":"2nd Choice","Mr. Nobody Against Putin":"1st Choice","The Perfect Neighbor":"3rd Choice"},"BEST FILM EDITING":{"F1":"2nd Choice","One Battle After Another":"3rd Choice","Sinners":"1st Choice"},"BEST ANIMATED FEATURE FILM":{"Elio":"3rd Choice","KPop Demon Hunters":"1st Choice","Zootopia 2":"2nd Choice"},"BEST VISUAL EFFECTS":{"Avatar: Fire and Ash":"1st Choice","Jurassic World Rebirth":"2nd Choice","Sinners":"3rd Choice"}},"Harold Koh and Christy Fisher":{"BEST PICTURE":{"Hamnet":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST ACTOR":{"Timothée Chalamet, Marty Supreme":"2nd Choice","Ethan Hawke, Blue Moon":"3rd Choice","Michael B. Jordan, Sinners":"1st Choice"},"BEST ACTRESS":{"Jessie Buckley, Hamnet":"1st Choice","Kate Hudson, Song Sung Blue":"2nd Choice","Renate Reinsve, Sentimental Value":"3rd Choice"},"BEST SUPPORTING ACTOR":{"Delroy Lindo, Sinners":"3rd Choice","Sean Penn, One Battle After Another":"2nd Choice","Stellan Skarsgard, Sentimental Value":"1st Choice"},"BEST SUPPORTING ACTRESS":{"Amy Madigan, Weapons":"3rd Choice","Wunmi Mosaku, Sinners":"2nd Choice","Teyana Taylor, One Battle After Another":"1st Choice"},"BEST DIRECTING":{"Chloé Zhao, Hamnet":"3rd Choice","Paul Thomas Anderson, One Battle After Another":"2nd Choice","Ryan Coogler, Sinners":"1st Choice"},"BEST INTERNATIONAL FEATURE FILM":{"The Secret Agent, Brazil":"2nd Choice","It Was Just an Accident, France":"3rd Choice","Sentimental Value, Norway":"1st Choice"},"BEST ORIGINAL SONG":{"\"Golden\" - KPop Demon Hunters":"2nd Choice","\"I Lied to You\" - Sinners":"1st Choice","\"Train Dreams\" - Train Dreams":"3rd Choice"},"BEST ORIGINAL SCREENPLAY":{"Marty Supreme":"3rd Choice","Sentimental Value":"2nd Choice","Sinners":"1st Choice"},"BEST SCREENPLAY ADAPTATION":{"Hamnet":"1st Choice","One Battle After Another":"2nd Choice","Train Dreams":"3rd Choice"},"BEST CINEMATOGRAPHY":{"One Battle After Another":"2nd Choice","Sinners":"1st Choice","Train Dreams":"3rd Choice"},"BEST ORIGINAL SCORE":{"Hamnet":"1st Choice","One Battle After Another":"3rd Choice","Sinners":"2nd Choice"},"BEST PRODUCTION DESIGN":{"Hamnet":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST COSTUME DESIGN":{"Frankenstein":"3rd Choice","Hamnet":"1st Choice","Sinners":"2nd Choice"},"BEST DOCUMENTARY FEATURE":{"The Alabama Solution":"2nd Choice","Mr. Nobody Against Putin":"1st Choice","The Perfect Neighbor":"3rd Choice"},"BEST FILM EDITING":{"F1":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST ANIMATED FEATURE FILM":{"Elio":"2nd Choice","KPop Demon Hunters":"1st Choice","Little Amélie or the Character of Rain":"3rd Choice"},"BEST VISUAL EFFECTS":{"F1":"1st Choice","The Lost Bus":"3rd Choice","Sinners":"2nd Choice"}},"Chandra Sekaran":{"BEST PICTURE":{"Bugonia":"3rd Choice","The Secret Agent":"1st Choice","Sinners":"2nd Choice"},"BEST ACTOR":{"Timothée Chalamet, Marty Supreme":"1st Choice","Leonardo DiCaprio, One Battle After Another":"2nd Choice","Michael B. Jordan, Sinners":"3rd Choice"},"BEST ACTRESS":{"Kate Hudson, Song Sung Blue":"1st Choice","Renate Reinsve, Sentimental Value":"2nd Choice","Emma Stone, Bugonia":"3rd Choice"},"BEST SUPPORTING ACTOR":{"Jacob Elordi, Frankenstein":"3rd Choice","Delroy Lindo, Sinners":"2nd Choice","Sean Penn, One Battle After Another":"1st Choice"},"BEST SUPPORTING ACTRESS":{"Amy Madigan, Weapons":"1st Choice","Wunmi Mosaku, Sinners":"2nd Choice","Teyana Taylor, One Battle After Another":"3rd Choice"},"BEST DIRECTING":{"Chloé Zhao, Hamnet":"1st Choice","Paul Thomas Anderson, One Battle After Another":"2nd Choice","Ryan Coogler, Sinners":"3rd Choice"},"BEST INTERNATIONAL FEATURE FILM":{"The Secret Agent, Brazil":"3rd Choice","Sentimental Value, Norway":"2nd Choice","The Voice of Hind Rajab, Tunisia":"1st Choice"},"BEST ORIGINAL SONG":{"\"Dear Me\" - Relentless":"3rd Choice","\"I Lied to You\" - Sinners":"2nd Choice","\"Sweet Dreams of Joy\" - Viva Verdi!":"1st Choice"},"BEST ORIGINAL SCREENPLAY":{"It Was Just an Accident":"2nd Choice","Marty Supreme":"1st Choice","Sentimental Value":"3rd Choice"},"BEST CINEMATOGRAPHY":{"One Battle After Another":"1st Choice","Train Dreams":"2nd Choice"},"BEST ORIGINAL SCORE":{"Bugonia":"2nd Choice","One Battle After Another":"1st Choice"},"BEST VISUAL EFFECTS":{"Jurassic World Rebirth":"1st Choice"}},"Dilbagh Chahal":{},"Leah Jennings":{"BEST PICTURE":{"Bugonia":"3rd Choice","One Battle After Another":"1st Choice","Sinners":"2nd Choice"},"BEST ACTOR":{"Timothée Chalamet, Marty Supreme":"3rd Choice","Michael B. Jordan, Sinners":"1st Choice","Wagner Moura, The Secret Agent":"2nd Choice"},"BEST ACTRESS":{"Jessie Buckley, Hamnet":"1st Choice","Rose Byrne, If I Had Legs I'd Kick You":"2nd Choice","Emma Stone, Bugonia":"3rd Choice"},"BEST SUPPORTING ACTOR":{"Benicio Del Toro, One Battle After Another":"1st Choice","Delroy Lindo, Sinners":"3rd Choice","Sean Penn, One Battle After Another":"2nd Choice"},"BEST SUPPORTING ACTRESS":{"Amy Madigan, Weapons":"2nd Choice","Wunmi Mosaku, Sinners":"3rd Choice","Teyana Taylor, One Battle After Another":"1st Choice"},"BEST DIRECTING":{"Josh Safdie, Marty Supreme":"3rd Choice","Paul Thomas Anderson, One Battle After Another":"2nd Choice","Ryan Coogler, Sinners":"1st Choice"},"BEST INTERNATIONAL FEATURE FILM":{"The Secret Agent, Brazil":"3rd Choice","It Was Just an Accident, France":"2nd Choice","Sentimental Value, Norway":"1st Choice"},"BEST ORIGINAL SONG":{"\"Golden\" - KPop Demon Hunters":"2nd Choice","\"I Lied to You\" - Sinners":"1st Choice","\"Train Dreams\" - Train Dreams":"3rd Choice"},"BEST ORIGINAL SCREENPLAY":{"Marty Supreme":"2nd Choice","Sentimental Value":"3rd Choice","Sinners":"1st Choice"},"BEST SCREENPLAY ADAPTATION":{"Bugonia":"2nd Choice","Frankenstein":"3rd Choice","One Battle After Another":"1st Choice"},"BEST CINEMATOGRAPHY":{"Marty Supreme":"3rd Choice","One Battle After Another":"1st Choice","Sinners":"2nd Choice"},"BEST ORIGINAL SCORE":{"Frankenstein":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST PRODUCTION DESIGN":{"Frankenstein":"2nd Choice","One Battle After Another":"3rd Choice","Sinners":"1st Choice"},"BEST COSTUME DESIGN":{"Frankenstein":"2nd Choice","Hamnet":"3rd Choice","Sinners":"1st Choice"},"BEST DOCUMENTARY FEATURE":{"Cutting Through Rocks":"3rd Choice","Mr. Nobody Against Putin":"2nd Choice","The Perfect Neighbor":"1st Choice"},"BEST FILM EDITING":{"Marty Supreme":"3rd Choice","One Battle After Another":"1st Choice","Sinners":"2nd Choice"},"BEST ANIMATED FEATURE FILM":{"KPop Demon Hunters":"1st Choice","Little Amélie or the Character of Rain":"3rd Choice","Zootopia 2":"2nd Choice"},"BEST VISUAL EFFECTS":{"Avatar: Fire and Ash":"2nd Choice","F1":"3rd Choice","Sinners":"1st Choice"}},"Sheryl Israel-Bloch":{"BEST PICTURE":{"Bugonia":"2nd Choice","One Battle After Another":"1st Choice","Sinners":"3rd Choice"},"BEST ACTOR":{"Leonardo DiCaprio, One Battle After Another":"3rd Choice","Ethan Hawke, Blue Moon":"1st Choice","Michael B. Jordan, Sinners":"2nd Choice"},"BEST ACTRESS":{"Jessie Buckley, Hamnet":"2nd Choice","Kate Hudson, Song Sung Blue":"3rd Choice","Emma Stone, Bugonia":"1st Choice"},"BEST SUPPORTING ACTOR":{"Benicio Del Toro, One Battle After Another":"1st Choice","Delroy Lindo, Sinners":"3rd Choice","Sean Penn, One Battle After Another":"2nd Choice"},"BEST SUPPORTING ACTRESS":{"Elle Fanning, Sentimental Value":"3rd Choice","Wunmi Mosaku, Sinners":"1st Choice","Teyana Taylor, One Battle After Another":"2nd Choice"},"BEST DIRECTING":{"Chloé Zhao, Hamnet":"1st Choice","Paul Thomas Anderson, One Battle After Another":"2nd Choice","Ryan Coogler, Sinners":"3rd Choice"},"BEST INTERNATIONAL FEATURE FILM":{"The Secret Agent, Brazil":"2nd Choice","Sentimental Value, Norway":"1st Choice","Sirât, Spain":"3rd Choice"},"BEST ORIGINAL SONG":{"\"Dear Me\" - Relentless":"2nd Choice","\"I Lied to You\" - Sinners":"1st Choice","\"Sweet Dreams of Joy\" - Viva Verdi!":"3rd Choice"},"BEST ORIGINAL SCREENPLAY":{"Blue Moon":"3rd Choice","Marty Supreme":"1st Choice","Sinners":"2nd Choice"},"BEST SCREENPLAY ADAPTATION":{"Bugonia":"2nd Choice","Hamnet":"3rd Choice","One Battle After Another":"1st Choice"},"BEST CINEMATOGRAPHY":{"Frankenstein":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST ORIGINAL SCORE":{"Bugonia":"2nd Choice","One Battle After Another":"3rd Choice","Sinners":"1st Choice"},"BEST PRODUCTION DESIGN":{"Frankenstein":"2nd Choice","One Battle After Another":"3rd Choice","Sinners":"1st Choice"},"BEST COSTUME DESIGN":{"Avatar: Fire and Ash":"1st Choice","Frankenstein":"3rd Choice","Sinners":"2nd Choice"},"BEST DOCUMENTARY FEATURE":{"The Alabama Solution":"1st Choice","Cutting Through Rocks":"2nd Choice","Mr. Nobody Against Putin":"3rd Choice"},"BEST FILM EDITING":{"F1":"2nd Choice","One Battle After Another":"1st Choice","Sinners":"3rd Choice"},"BEST ANIMATED FEATURE FILM":{"Arco":"3rd Choice","KPop Demon Hunters":"1st Choice","Zootopia 2":"2nd Choice"},"BEST VISUAL EFFECTS":{"Avatar: Fire and Ash":"3rd Choice","F1":"1st Choice","Jurassic World Rebirth":"2nd Choice"}},"Karen Lesser":{"BEST PICTURE":{"Hamnet":"3rd Choice","One Battle After Another":"1st Choice","Sinners":"2nd Choice"},"BEST ACTOR":{"Timothée Chalamet, Marty Supreme":"3rd Choice","Leonardo DiCaprio, One Battle After Another":"2nd Choice","Michael B. Jordan, Sinners":"1st Choice"},"BEST ACTRESS":{"Jessie Buckley, Hamnet":"1st Choice","Rose Byrne, If I Had Legs I'd Kick You":"2nd Choice","Emma Stone, Bugonia":"3rd Choice"},"BEST SUPPORTING ACTOR":{"Benicio Del Toro, One Battle After Another":"2nd Choice","Delroy Lindo, Sinners":"3rd Choice","Stellan Skarsgard, Sentimental Value":"1st Choice"},"BEST SUPPORTING ACTRESS":{"Elle Fanning, Sentimental Value":"2nd Choice","Amy Madigan, Weapons":"3rd Choice","Teyana Taylor, One Battle After Another":"1st Choice"},"BEST DIRECTING":{"Chloé Zhao, Hamnet":"3rd Choice","Paul Thomas Anderson, One Battle After Another":"1st Choice","Ryan Coogler, Sinners":"2nd Choice"},"BEST INTERNATIONAL FEATURE FILM":{"The Secret Agent, Brazil":"3rd Choice","It Was Just an Accident, France":"2nd Choice","Sentimental Value, Norway":"1st Choice"},"BEST ORIGINAL SONG":{"\"Golden\" - KPop Demon Hunters":"1st Choice","\"I Lied to You\" - Sinners":"2nd Choice","\"Train Dreams\" - Train Dreams":"3rd Choice"},"BEST ORIGINAL SCREENPLAY":{"It Was Just an Accident":"3rd Choice","Marty Supreme":"1st Choice","Sinners":"2nd Choice"},"BEST SCREENPLAY ADAPTATION":{"Bugonia":"3rd Choice","Hamnet":"1st Choice","One Battle After Another":"2nd Choice"},"BEST CINEMATOGRAPHY":{"Marty Supreme":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST ORIGINAL SCORE":{"Hamnet":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST PRODUCTION DESIGN":{"Hamnet":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST COSTUME DESIGN":{"Frankenstein":"3rd Choice","Hamnet":"2nd Choice","Sinners":"1st Choice"},"BEST DOCUMENTARY FEATURE":{"Cutting Through Rocks":"3rd Choice","Mr. Nobody Against Putin":"1st Choice","The Perfect Neighbor":"2nd Choice"},"BEST FILM EDITING":{"F1":"3rd Choice","One Battle After Another":"2nd Choice","Sinners":"1st Choice"},"BEST ANIMATED FEATURE FILM":{"KPop Demon Hunters":"1st Choice","Little Amélie or the Character of Rain":"3rd Choice","Zootopia 2":"2nd Choice"},"BEST VISUAL EFFECTS":{"Avatar: Fire and Ash":"1st Choice","F1":"2nd Choice","Sinners":"3rd Choice"}}};
+
+const CATEGORIES = {"BEST PICTURE":["Bugonia","F1","Frankenstein","Hamnet","Marty Supreme","One Battle After Another","The Secret Agent","Sentimental Value","Sinners","Train Dreams"],"BEST ACTOR":["Timothée Chalamet, Marty Supreme","Leonardo DiCaprio, One Battle After Another","Ethan Hawke, Blue Moon","Michael B. Jordan, Sinners","Wagner Moura, The Secret Agent"],"BEST ACTRESS":["Jessie Buckley, Hamnet","Rose Byrne, If I Had Legs I'd Kick You","Kate Hudson, Song Sung Blue","Renate Reinsve, Sentimental Value","Emma Stone, Bugonia"],"BEST SUPPORTING ACTOR":["Benicio Del Toro, One Battle After Another","Jacob Elordi, Frankenstein","Delroy Lindo, Sinners","Sean Penn, One Battle After Another","Stellan Skarsgard, Sentimental Value"],"BEST SUPPORTING ACTRESS":["Elle Fanning, Sentimental Value","Inga Ibsdotter Lilleaas, Sentimental Value","Amy Madigan, Weapons","Wunmi Mosaku, Sinners","Teyana Taylor, One Battle After Another"],"BEST DIRECTING":["Chloé Zhao, Hamnet","Josh Safdie, Marty Supreme","Paul Thomas Anderson, One Battle After Another","Joachim Trier, Sentimental Value","Ryan Coogler, Sinners"],"BEST INTERNATIONAL FEATURE FILM":["The Secret Agent, Brazil","It Was Just an Accident, France","Sentimental Value, Norway","Sirât, Spain","The Voice of Hind Rajab, Tunisia"],"BEST ORIGINAL SONG":["\"Dear Me\" - Relentless","\"Golden\" - KPop Demon Hunters","\"I Lied to You\" - Sinners","\"Sweet Dreams of Joy\" - Viva Verdi!","\"Train Dreams\" - Train Dreams"],"BEST ORIGINAL SCREENPLAY":["Blue Moon","It Was Just an Accident","Marty Supreme","Sentimental Value","Sinners"],"BEST SCREENPLAY ADAPTATION":["Bugonia","Frankenstein","Hamnet","One Battle After Another","Train Dreams"],"BEST CINEMATOGRAPHY":["Frankenstein","Marty Supreme","One Battle After Another","Sinners","Train Dreams"],"BEST ORIGINAL SCORE":["Bugonia","Frankenstein","Hamnet","One Battle After Another","Sinners"],"BEST PRODUCTION DESIGN":["Frankenstein","Hamnet","Marty Supreme","One Battle After Another","Sinners"],"BEST COSTUME DESIGN":["Avatar: Fire and Ash","Frankenstein","Hamnet","Marty Supreme","Sinners"],"BEST DOCUMENTARY FEATURE":["The Alabama Solution","Come See Me in the Good Light","Cutting Through Rocks","Mr. Nobody Against Putin","The Perfect Neighbor"],"BEST FILM EDITING":["F1","Marty Supreme","One Battle After Another","Sentimnetal Value","Sinners"],"BEST ANIMATED FEATURE FILM":["Arco","Elio","KPop Demon Hunters","Little Amélie or the Character of Rain","Zootopia 2"],"BEST VISUAL EFFECTS":["Avatar: Fire and Ash","F1","Jurassic World Rebirth","The Lost Bus","Sinners"]};
+
+const POINTS = { "1st Choice": 3, "2nd Choice": 2, "3rd Choice": 1 };
+const winners = {};
+
+// Build winner dropdowns
+const grid = document.getElementById('winnerGrid');
+Object.entries(CATEGORIES).forEach(([cat, nominees]) => {
+  const row = document.createElement('div');
+  row.className = 'winner-row';
+  const label = document.createElement('label');
+  label.textContent = cat;
+  const sel = document.createElement('select');
+  sel.innerHTML = `<option value="">— Not Yet Announced —</option>` +
+    nominees.map(n => `<option value="${n}">${n}</option>`).join('');
+  sel.addEventListener('change', () => {
+    winners[cat] = sel.value || null;
+    sel.className = sel.value ? 'has-winner' : '';
+    render();
+  });
+  row.appendChild(label);
+  row.appendChild(sel);
+  grid.appendChild(row);
+});
+
+function calcScore(name) {
+  const ballot = BALLOTS[name] || {};
+  let total = 0, details = [];
+  Object.entries(CATEGORIES).forEach(([cat, nominees]) => {
+    const winner = winners[cat];
+    const picks = ballot[cat] || {};
+    // Find what this person picked for this category
+    const myPick = Object.entries(picks).find(([,v]) => v);
+    // Check all picks
+    let catPts = 0, catStatus = 'pending', catPick = null, catChoice = null;
+    if (winner) {
+      const match = picks[winner];
+      if (match) {
+        catPts = POINTS[match];
+        catStatus = match === '1st Choice' ? 'correct-1' : match === '2nd Choice' ? 'correct-2' : 'correct-3';
+      } else {
+        catStatus = 'wrong';
+      }
+      catPick = winner;
+      catChoice = match || null;
+    } else if (myPick) {
+      catPick = myPick[0];
+      catChoice = myPick[1];
+    }
+    total += catPts;
+    details.push({ cat, pick: catPick, choice: catChoice, pts: catPts, status: catStatus, winner });
+  });
+  return { total, details };
+}
+
+function render() {
+  const totalCats = Object.keys(CATEGORIES).length;
+  const announced = Object.values(winners).filter(Boolean).length;
+  document.getElementById('progressBar').style.width = (announced / totalCats * 100) + '%';
+
+  const scores = Object.keys(BALLOTS)
+    .filter(n => Object.keys(BALLOTS[n]).length > 0)
+    .map(name => ({ name, ...calcScore(name) }))
+    .sort((a, b) => b.total - a.total);
+
+  const maxScore = scores[0]?.total || 1;
+  let rank = 1;
+  scores.forEach((s, i) => {
+    if (i > 0 && s.total < scores[i-1].total) rank = i + 1;
+    s.rank = rank;
+  });
+
+  // Stats
+  const statsRow = document.getElementById('statsRow');
+  const totalPts = Object.keys(CATEGORIES).length * 3;
+  statsRow.innerHTML = `
+    <div class="stat"><span>${announced} of ${totalCats}</span> <strong>categories announced</strong></div>
+    <div class="stat">Max possible: <strong>${maxScore} pts</strong></div>
+    <div class="stat">${scores.length} <strong>players</strong></div>
+  `;
+
+  const lb = document.getElementById('leaderboard');
+  const expanded = [...lb.querySelectorAll('.player-card.expanded')].map(el => el.dataset.name);
+
+  lb.innerHTML = '';
+  scores.forEach((s, i) => {
+    const card = document.createElement('div');
+    card.className = `player-card rank-${s.rank}`;
+    card.dataset.name = s.name;
+    card.style.animationDelay = `${i * 0.04}s`;
+    if (expanded.includes(s.name)) card.classList.add('expanded');
+
+    const pct = maxScore > 0 ? (s.total / maxScore * 100) : 0;
+    const medal = s.rank === 1 ? '🥇' : s.rank === 2 ? '🥈' : s.rank === 3 ? '🥉' : s.rank;
+
+    const correctCount = s.details.filter(d => d.pts > 0).length;
+
+    card.innerHTML = `
+      <div class="rank-badge">${typeof medal === 'string' && medal.includes('🥇') || medal.includes('🥈') || medal.includes('🥉') ? medal : s.rank}</div>
+      <div class="player-info">
+        <div class="player-name">${s.name}</div>
+        <div class="player-meta">${correctCount} correct pick${correctCount !== 1 ? 's' : ''} · click for details</div>
+        <div class="score-bar-container"><div class="score-bar" style="width:${pct}%"></div></div>
+      </div>
+      <div class="score-display">
+        <div class="score-number">${s.total}</div>
+        <div class="score-label">pts</div>
+      </div>
+      <div class="detail-panel">
+        <div class="section-label" style="margin-bottom:0">▸ Pick breakdown</div>
+        <div class="detail-grid">
+          ${s.details.map(d => `
+            <div class="detail-item ${d.status}">
+              <div class="detail-cat">${d.cat}</div>
+              <div class="detail-pick">
+                ${d.pts > 0 ? `<span class="detail-pts">+${d.pts}</span>` : d.status === 'wrong' ? '<span class="detail-pts" style="color:#666">✗</span>' : ''}
+                ${d.pick || '<span style="opacity:0.4">No pick</span>'}
+                ${d.choice ? `<span style="opacity:0.5;font-size:11px"> · ${d.choice}</span>` : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    card.addEventListener('click', () => card.classList.toggle('expanded'));
+    lb.appendChild(card);
+  });
+}
+
+render();
+</script>
+</body>
+</html>
