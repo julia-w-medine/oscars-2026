@@ -470,6 +470,8 @@
   <div class="update-notice">
     <span class="pulse"></span>
     Scores update instantly as winners are entered above
+    &nbsp;·&nbsp;
+    <button onclick="clearBoard()" style="background:transparent;border:none;color:rgba(229,115,115,0.6);cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.05em;padding:0;text-decoration:underline;text-underline-offset:3px;">🗑 Clear all winners</button>
   </div>
 
 </div>
@@ -626,6 +628,17 @@ function render() {
     card.addEventListener('click', () => card.classList.toggle('expanded'));
     lb.appendChild(card);
   });
+}
+
+function clearBoard() {
+  if (!confirm('Clear all winners and reset the leaderboard?')) return;
+  Object.keys(winners).forEach(k => { winners[k] = null; });
+  document.querySelectorAll('#winnerGrid select').forEach(sel => {
+    sel.value = '';
+    sel.className = '';
+  });
+  saveWinners();
+  render();
 }
 
 render();
